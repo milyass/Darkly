@@ -1,0 +1,17 @@
+{
+  "name": "robots_hidden",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "jssoup": "^0.0.12",
+    "ora": "^5.4.1"
+  }
+}
