@@ -1,6 +1,6 @@
 # Brute Force Sign In
-- Method 1: Theres no limit to sign in requests so we can brute force it.
-- Method 2: Because members page was vulnerable to an sql injection attack we can enumerate databases for credentials.
+- Method 1 & 3: Because members page was vulnerable to an sql injection attack we can enumerate databases for credentials.
+- Method 2: Theres no limit to sign in requests so we can brute force it.
 
 # Vulnerability Method 1
 
